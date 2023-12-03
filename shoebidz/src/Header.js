@@ -42,13 +42,13 @@ function Header() {
     </div>
     {/* After Search Bar */}
     <div className='header_nav'>
-      <Link to = {!user && '/login'}>
+      <Link to = {!user && '/Login'}>
       <div onClick={handleAuthenticaton} className='header_option'>
         {/* First icon */}
         <span className="header_optionLineOne">Hello {!user ? 'Guest' : user.email}</span>
         <span className="header_optionLineTwo">{user ? 'Sign Out' : 'Sign In'}</span>
       </div>
-      </Link >
+      </Link>
       <div className='header_option'>
           {/* Second icon */}
         <span className='header_optionLineOne'>
