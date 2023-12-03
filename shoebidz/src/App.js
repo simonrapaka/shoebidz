@@ -7,6 +7,7 @@ import Login from './Login';
 import {auth} from './firebase';
 import {useStateValue} from "./StateProvider";
 import Payment from './Payment';
+import Profile from './Profile';
 import Invoice from './Invoice';
 import {
   BrowserRouter as Router,
@@ -79,6 +80,13 @@ function App() {
         <>
           <Header/>
           <Invoice/>
+        </>
+      }
+      />
+      <Route path='/Profile' element ={
+        <>
+          <Header/>
+          <Profile/>
         </>
       }
       />

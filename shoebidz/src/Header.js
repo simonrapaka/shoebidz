@@ -6,6 +6,7 @@ import { useStateValue } from "./StateProvider";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import SearchIcon from '@mui/icons-material/Search';
 import { auth } from "./firebase";
+
 <link
   rel="stylesheet"
   href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -49,6 +50,21 @@ function Header() {
         <span className="header_optionLineTwo">{user ? 'Sign Out' : 'Sign In'}</span>
       </div>
       </Link>
+      
+      
+      <Link to={user ? '/Profile' : '/Login'}>
+        <div className="header_option">
+          <span className="header_optionLineOne">
+              view
+          </span>
+          <span className='header_optionLineTwo'>
+              Profile
+          </span>
+        </div>  
+      </Link>
+
+        
+      
       <div className='header_option'>
           {/* Second icon */}
         <span className='header_optionLineOne'>
