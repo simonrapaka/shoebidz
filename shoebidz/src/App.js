@@ -6,6 +6,8 @@ import Checkout from './Checkout';
 import Login from './Login';
 import {auth} from './firebase';
 import {useStateValue} from "./StateProvider";
+import Payment from './Payment';
+import Invoice from './Invoice';
 import {
   BrowserRouter as Router,
   Routes,
@@ -64,7 +66,23 @@ function App() {
         </>
       } />
       
-      
+      <Route path='/payment' element={
+        <>
+          <Header />
+          {/* <Elements stripe={promise}>
+
+          </Elements> */}
+          <Payment />
+        </>
+      }/>
+      <Route path='/Invoice' element ={
+        <>
+          <Header/>
+          <Invoice/>
+        </>
+      }
+      />
+
       {/* <Route path='/login' element={0} /> */}
       {/* <Route path='/checkout' element={<Checkout/>} /> */}
       {/* <Route path='/' element={<Header/>} /> */}
