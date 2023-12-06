@@ -3,9 +3,12 @@ import './Payment.css'
 import { useStateValue } from './StateProvider'
 import CheckoutProduct from './CheckoutProduct';
 import { Link } from 'react-router-dom';
+import { CardElement,useStripe,useElements } from '@stripe/react-stripe-js';
 
 function Payment() {
     const [{basket, user},dispatch] = useStateValue();
+    const stripe =useStripe()
+    const elements=useElements();
     const getTotal = () => {
       return basket?.reduce((total, item) => total + item.price, 0);
     };
@@ -46,16 +49,20 @@ function Payment() {
         {/* Payment Section - payment method */}
         <div className='payment_section'>
         <div className='payment_title'>
-                <h3 className='Total_payment'>Total Amount: ${getTotal().toFixed(2)}</h3>
+                <h3 className='Total_payment'>Total Amount: <h3>${getTotal().toFixed(2)}</h3></h3>
+                <h3>Payment Method</h3>
         </div>
-        <div className='payment_details'>
+       
+        
+        {/* <div className='payment_details'>
             {getTotal() > 0 && (
                 <Link to ='/invoice'>
                   <button className="pay_button">Pay</button>
                 </Link>
                 
             )}
-        </div>
+        </div> */}
+        
         </div>
       </div>
     </div>

@@ -9,12 +9,17 @@ import {useStateValue} from "./StateProvider";
 import Payment from './Payment';
 import Profile from './Profile';
 import Invoice from './Invoice';
+import {loadStripe} from "@stripe/stripe-js";
+import {Elements} from "@stripe/react-stripe-js";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Link,
 } from "react-router-dom";
+
+const promise =loadStripe("pk_test_51OJfLTSAUqwPqtXTzzwNw7WzCtq0RMS9OzkVYwd0UIVGuI4thO7vOwxRd2fGIjCXGBbzH8j6E7qqh5FJntm9Pb7200l9fgbI8Q");
+
 function App() {
 
   const[{}, dispatch] = useStateValue();
@@ -73,7 +78,10 @@ function App() {
           {/* <Elements stripe={promise}>
 
           </Elements> */}
-          <Payment />
+          <Elements stripe={promise}>
+            <Payment />
+          </Elements>
+          
         </>
       }/>
       <Route path='/Invoice' element ={
